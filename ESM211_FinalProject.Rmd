@@ -15,6 +15,10 @@ library(primer)
 library(tidyverse)
 ```
 
+Starting stages:
+seedbank:5000
+rosette:500
+adult:100
 
 Alliaria petiolate Matrix
 ```{r}
@@ -35,4 +39,9 @@ print(original_matrix)
 
 ```
 
+```{r}
+lambda(original_matrix)
+stable.stage(original_matrix)
+DemoInfo(original_matrix)
+```
 
