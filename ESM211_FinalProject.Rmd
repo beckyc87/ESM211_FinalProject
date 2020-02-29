@@ -39,9 +39,76 @@ print(original_matrix)
 
 ```
 
+Part 2: Projecting the Matrix
+```{r}
+
+n_0 <- c(5000, 500, 100) #initial abundance
+pop_1 <- pop.projection(original_matrix, n_0, iterations = 50) #initial population
+stage.vector.plot(pop_1$stage.vector) #proportions
+stage.vector.plot(pop_1$stage.vector, proportions = FALSE)
+
+```
+
+```{r}
+plot(pop_1$pop.sizes)
+plot(pop_1$pop.changes)
+
+```
+
+
+
 ```{r}
 lambda(original_matrix)
 stable.stage(original_matrix)
 DemoInfo(original_matrix)
 ```
+
+
+Manual sensitivity analysis
+
+```{r}
+#Manipulating seedling survival s
+original_matrix[3,2] <- 0.02
+lambda(original_matrix)
+
+original_matrix[3,2] <- 0.01
+lambda(original_matrix)
+
+original_matrix[3,2] <- 0.008
+lambda(original_matrix)
+
+original_matrix[3,2] <- 0.004
+lambda(original_matrix)
+
+original_matrix[3,2] <- 0.002
+lambda(original_matrix)
+
+original_matrix[3,2] <- 0.0019
+lambda(original_matrix)
+
+```
+
+```{r}
+original_matrix[3,2] <- 0.025
+
+#manual manipulation f
+gb =  0.3171
+s = 0.025
+f = 49
+v = 0.8228
+gi =  0.5503
+
+life_stages <- c("Seedbank", "Rosette", "Adult")
+original_matrix_f <- matrix(c(1-gb, 0, f*v*(1-gi),
+                          gb,   0, f*v*gi,
+                          0,    s, 0),
+                          nrow = 3, ncol = 3, byrow = TRUE, dimnames = list(life_stages,life_stages))
+
+lambda(original_matrix_f)
+
+#f would have to be below 49 to get below a 1 lambda
+
+```
+
+
 
