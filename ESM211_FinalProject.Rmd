@@ -113,6 +113,12 @@ lambda(original_matrix_f)
 
 Part 4: Sensitivity
 ```{r}
+gb =  0.3171
+s = 0.025
+f = 616
+v = 0.8228
+gi =  0.5503
+
 original_matrix <- matrix(c(1-gb, 0, f*v*(1-gi),
                           gb,   0, f*v*gi,
                           0,    s, 0),
