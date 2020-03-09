@@ -2,7 +2,9 @@
 title: "ESAm 211 Final Project"
 author: "Becky Clow and Priscilla Hare"
 date: "2/27/2020"
-output: html_document
+output:
+  word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -43,15 +45,15 @@ Part 2: Projecting the Matrix
 ```{r}
 
 n_0 <- c(5000, 500, 100) #initial abundance
-pop_1 <- pop.projection(original_matrix, n_0, iterations = 50) #initial population
+pop_1 <- pop.projection(original_matrix, n_0, iterations = 25) #initial population
 stage.vector.plot(pop_1$stage.vector) #proportions
 stage.vector.plot(pop_1$stage.vector, proportions = FALSE)
 
 ```
 
 ```{r}
-plot(pop_1$pop.sizes)
-plot(pop_1$pop.changes)
+plot(pop_1$pop.sizes, xlab = "Year", ylab = "Population Size")
+plot(pop_1$pop.changes, xlab = "Year", ylab = "Proportional Population Change")
 
 ```
 
