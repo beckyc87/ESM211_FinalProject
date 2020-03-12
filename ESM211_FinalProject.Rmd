@@ -48,6 +48,7 @@ n_0 <- c(5000, 500, 100) #initial abundance
 pop_1 <- pop.projection(original_matrix, n_0, iterations = 25) #initial population
 stage.vector.plot(pop_1$stage.vector) #proportions
 stage.vector.plot(pop_1$stage.vector, proportions = FALSE)
+stage.vector.plot(pop_1$stage.vector, proportions = FALSE, log = "y")
 
 ```
 
@@ -57,6 +58,10 @@ plot(pop_1$pop.changes, xlab = "Year", ylab = "Proportional Population Change")
 
 ```
 
+```{r}
+plot(pop_1$pop.sizes, xlab = "Year", ylab = "Population Size", log = "y")
+
+```
 
 
 ```{r}
